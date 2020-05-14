@@ -49,23 +49,7 @@
 <div class="content_wrapper clearfix">
     <div class=sections_group>
        <div class=entry-content itemprop=mainContentOfPage>
-          {{-- <div class="section mcb-section mcb-section-09xb4k3yb bg-cover"  style="padding-top:240px;padding-bottom:50px;background-color:#345e51;background-image:url(https://themes.muffingroup.com/be/company6/wp-content/uploads/2020/03/comp6-contact-top-bg.png);background-repeat:no-repeat;background-position:left top" >
-             <div class="section_wrapper mcb-section-inner">
-                <div class="wrap mcb-wrap mcb-wrap-hm40ki8gg one  valign-top clearfix" style  >
-                   <div class=mcb-wrap-inner>
-                      <div class="column mcb-column mcb-item-nunwe1jjg one column_column">
-                         <div class="column_attr clearfix" style>
-                            <h1 class="themecolor">Feel free<br> to contact with us<br> and talk about your<br> new project</h1>
-                         </div>
-                      </div>
-                      <div class="column mcb-column mcb-item-mx1keygb0 one column_divider">
-                         <hr class=no_line style="margin:0 auto 20px">
-                      </div>
-                      <div class="column mcb-column mcb-item-4u8xvlhl7 one column_button"><a class="button  button_size_3 button_js" href=# style=background-color:#ffffff!important;color:#3c6251;    ><span class=button_label>+23 394 495 200</span></a></div>
-                   </div>
-                </div>
-             </div>
-          </div> --}}
+          
           <div class="section mcb-section mcb-section-gzxe3igwh  no-margin-h equal-height-wrap full-width"  style="padding-top:200px;padding-bottom:120px;background-image:url(https://themes.muffingroup.com/be/company6/wp-content/uploads/2020/03/comp6-patternbg.png);background-repeat:repeat;background-position:left top" >
              <div class="section_wrapper mcb-section-inner">
                 <div class="wrap mcb-wrap mcb-wrap-s1dqimoh0 one-second  valign-middle clearfix" style="padding:0 3%"  >
@@ -79,16 +63,16 @@
                                   <div class="column one">
                                     <label>
                                        <span class="wpcf7-form-control-wrap your-name">
-                                          <input type="text" name="name" value size=40 class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="First Name">
-                                          @if ($errors->has('name')) <p class="text-danger">{{ $errors->first('name') }}</p> @endif
+                                          <input type="text" name="first_name" value size=40 class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="First Name">
+                                          @if ($errors->has('first_name')) <p class="text-danger">{{ $errors->first('first_name') }}</p> @endif
                                          </span> 
                                       </label>
                                    </div>
                                    <div class="column one">
                                     <label>
                                        <span class="wpcf7-form-control-wrap your-name">
-                                          <input type="text" name="name" value size=40 class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Last Name">
-                                          @if ($errors->has('name')) <p class="text-danger">{{ $errors->first('name') }}</p> @endif
+                                          <input type="text" name="last_name" value size=40 class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Last Name">
+                                          @if ($errors->has('last_name')) <p class="text-danger">{{ $errors->first('last_name') }}</p> @endif
                                          </span> 
                                       </label>
                                    </div>
@@ -104,9 +88,8 @@
                                  
                                     
                                     <div>
-                                       <select class="js-select2 wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required" name="service">
+                                       <select class="js-select2 wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required" name="country">
                                           <option>Please Select Your Country</option>
-                                          <option>Please Country</option>
                                           <option>Alabama</option>
                                           <option>Alaska</option>
                                           <option>California</option>
@@ -121,10 +104,11 @@
                                  <div class="column one"> 
                                  
                                     <label style=" font-size:15px;color:white;font-weight:lighter;">Services</label>
-                                    <select class="select2 wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                                    <select class="select2 wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required" multiple name="services[]" data-placeholder="Select a State" style="width: 100%;">
                                        <option>eCommerce Bussiness</option>
                                        <option>UI/UX Design</option>
                                        <option>Online Services</option>
+                                       <option>Web Development</option>
                                     </select>
                                  </div>
                                  

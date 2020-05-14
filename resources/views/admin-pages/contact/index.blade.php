@@ -23,8 +23,8 @@
                               
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Subject</th>
-                                <th>Details</th>
+                                <th>Country</th>
+                                <th>Services</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -41,11 +41,15 @@
     </div>
 </div>
 @endsection
-@section('script')
+@section('scripts')
+<script>
+    console.log('Hello I amhere');
+</script>
 <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 
 <script>
     $(function() {
+        
                $('#loadData').DataTable({
                processing: true,
                serverSide: true,
@@ -53,8 +57,8 @@
                columns: [
                     { data: 'name', name: 'name' },
                     { data: 'email', name: 'email' },
-                    { data: 'subject', name: 'subject' },
-                    { data: 'details', name: 'details' },
+                    { data: 'country', name: 'country' },
+                    { data: 'services', name: 'services' },
                     { data: 'status', name: 'status' },
                     { data: 'action', name: 'action', orderable: false, searchable: false }
                 ]

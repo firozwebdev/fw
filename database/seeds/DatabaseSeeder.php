@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
          //$this->call(ContactSeeder::class);
          //factory(App\Contact::class, 20)->create();
-         //factory(App\User::class, 20)->create();
+         factory(App\User::class, 20)->create();
          factory(App\Admin::class, 1)->create();
         
     }

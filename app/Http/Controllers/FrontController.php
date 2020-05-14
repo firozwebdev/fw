@@ -42,25 +42,27 @@ class FrontController extends Controller
     
 
     public function sendMessage(Request $request){
+        
         try{
             $message = [
-                'name.required' => 'Name is required',
-                'name.max' => 'Name is too long',
+                'first_name.required' => 'Name is required',
+                'first_name.max' => 'Name is too long',
+                'last_name.required' => 'Name is required',
+                'last_name.max' => 'Name is too long',
                 'email.required' => 'Email is required',
                 'email.email' => 'Email is not valid',
-                'subject.required' => 'Subject is required',
-                'subject.max' => 'Subject is too long',
-                'details.required' => 'Details is required',
-                'details.max' => 'Details is too long',
+                'country.required' => 'Subject is required',
+                'services.required' => 'Services is required',
                 'message.required' => 'Message is required',
                 
             ];
             $rules = [
                
-                'name' => 'required | max:100',
+                'first_name' => 'required | max:100',
+                'last_name' => 'required | max:100',
                 'email' => 'required|email',
-                'subject' => 'required|max:255',
-                'details' => 'required|max:255',
+                'country' => 'required',
+                'services' => 'required',
                 'message' => 'required',
                
             ];
@@ -70,8 +72,16 @@ class FrontController extends Controller
                 return redirect()->back()->withInput()->withErrors($validator);
             }
 
-          
-           Contact::create($request->all());
+            $contact = new Contact();
+            $contact->first_name = $request->first_name;
+            $contact->last_name = $request->last_name;
+            $contact->email = $request->email;
+            $contact->country = $request->country;
+            $contact->services = json_encode($request->services);
+            $contact->message = $request->message;
+            $contact->save();
+        
+           //Contact::create($request->all());
            
           // alert()->success('Your message was sent');
           toast('Your message was sent','success')->autoClose(5000);

@@ -26,7 +26,7 @@
                                 <th>Country</th>
                                 <th>Services</th>
                                 <th>Status</th>
-                                <th>Action</th>
+                                <th style="width:117px;">Action</th>
                             </tr>
                         </thead>
                         

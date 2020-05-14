@@ -7,7 +7,7 @@
         <!-- general form elements -->
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">{{ $contact->name}} 's Message Details</h3>
+            <h3 class="card-title">{{ $contact->first_name .' '.$contact->last_name}} 's Message Details</h3>
           </div>
           <!-- /.card-header -->
           <!-- form start -->
@@ -15,19 +15,34 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="">Name</label>
-                <input type="text" class="form-control" id="" value="{{ $contact->name }}">
+                <input type="text" class="form-control" id="" value="{{ $contact->first_name .' '.$contact->last_name}} ">
               </div>
               <div class="form-group">
                 <label for="">Email</label>
                 <input type="text" class="form-control" id="" value="{{ $contact->email }}">
               </div>
               <div class="form-group">
-                <label for="">Subject</label>
-                <input type="text" class="form-control" id="" value="{{ $contact->subject }}">
+                <label for="">Country</label>
+                <input type="text" class="form-control" id="" value="{{ $contact->country }}">
               </div>
+              <?php
+                  $servicesData = json_decode($contact->services);
+                  
+
+                  $services = '';
+                  foreach ($servicesData as $service) { 
+                      if ($services) $services .= ', ';
+                      $services .= $service; 
+                  }
+                 
+                 
+              ?>
+              
+
               <div class="form-group">
-                <label for="">Details</label>
-                <input type="text" class="form-control" id="" value="{{ $contact->details }}">
+                <label for="">Services</label>
+                
+                <input type="text" class="form-control" id="" value="{{ $services }}">
               </div>
               <div class="form-group">
                 <label for="">Details</label>

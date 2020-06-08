@@ -8,6 +8,9 @@ Route::get('admin-password-reset/{token}','Admin\ResetPasswordController@resetPa
 Route::post('admin-password-update','Admin\ResetPasswordController@reset')->name('admin.password.update');
 
 
+
+
+
 Route::group(['middleware'=>'auth:admin'],function (){
     Route::get('logout','Admin\AdminController@logout')->name('admin.logout');
     Route::get('dashboard','DashboardController@dashboard')->name('dashboard');
@@ -19,8 +22,13 @@ Route::group(['middleware'=>'auth:admin'],function (){
 
     Route::resource('contacts', 'Admin\ContactController');
 
-Route::get('/users','Admin\UserController@index')->name('user.index');
-Route::get('/users/create','Admin\UserController@create')->name('user.create');
+
+    Route::prefix('users')->group(function(){
+        Route::get('/','Admin\UserController@index')->name('user.index');
+        Route::get('/create','Admin\UserController@create')->name('user.create');
+    });
+
+
 Route::get('/ajax-getAllUserData','Admin\UserController@getAllUserData')->name('getAllUserData');
 
 });

@@ -1,3 +1,10 @@
+@php
+  $route = Route::current()->getName();
+  $prefix = Request::route()->getPrefix();
+@endphp
+
+
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
@@ -23,11 +30,11 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview ">
             <a href="{{ route('dashboard')}}" class="nav-link   {{ request()->is('dashboard') ? ' active' : '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                {{ $prefix  }}
                 {{-- <i class="right fas fa-angle-left"></i> --}}
               </p>
             </a>
@@ -35,7 +42,7 @@
           </li>
 
 
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview  {{ $prefix == 'admin/users' ? 'menu-open':'' }}">
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -46,13 +53,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('user.index')}}" class="nav-link {{ request()->is('admin/users') ? ' active' : '' }}">
+                <a href="{{ route('user.index')}}" class="nav-link {{ $route =='user.index' ? ' active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Users</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('user.create')}}" class="nav-link {{ request()->is('admin/user/create') ? ' active' : '' }}">
+                <a href="{{ route('user.create')}}" class="nav-link {{ $route =='user.create' ? ' active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Create</p>
                 </a>

@@ -2,10 +2,12 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+//use Illuminate\Auth\Authenticatable;
+use App\Notifications\AdminPasswordResetNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Notifications\AdminPasswordResetNotification;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 
 
 class Admin extends Authenticatable

@@ -64,18 +64,18 @@ class ContactController extends Controller
                     })->editColumn('services', function($data) {
                         $services_data = json_decode($data->services);
                         if(!empty($services_data)){
-                            // $services ='';
-                            // foreach($services_data as $services){
-                            //     $services .= ', '. $services;
-                            // }
-                            // return $services;
-
-                            $services = '';
-                            foreach ($services_data as $service) { 
-                                if ($services) $services .= ', ';
-                                $services .= $service; 
+                            $services ='';
+                            foreach($services_data as $services){
+                                $services .= ', '. $services;
                             }
                             return $services;
+
+                            // $services = '';
+                            // foreach ($services_data as $service) { 
+                            //     if ($services) $services .= ', ';
+                            //     $services .= $service; 
+                            // }
+                            // return $services;
                         }
                         
                     })->editColumn('status', function($data) {
